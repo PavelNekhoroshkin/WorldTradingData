@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="17G6030" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="StockFromList" representedClassName="StockFromList" syncable="YES">
+        <attribute name="currency" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isHistoryDownladed" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stockExchangeLong" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stockExchangeShort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timezoneName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="stockHistory" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="StockHistoryDay" inverseName="stock" inverseEntity="StockHistoryDay" syncable="YES"/>
+    </entity>
+    <entity name="StockHistoryDay" representedClassName="StockHistoryDay" syncable="YES">
+        <attribute name="close" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="stock" maxCount="1" deletionRule="Nullify" destinationEntity="StockFromList" inverseName="stockHistory" inverseEntity="StockFromList" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="StockFromList" positionX="-45" positionY="0" width="128" height="165"/>
+        <element name="StockHistoryDay" positionX="-271.89453125" positionY="55.82421875" width="128" height="105"/>
+    </elements>
+</model>
